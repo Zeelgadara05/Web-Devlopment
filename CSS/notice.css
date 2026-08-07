@@ -1,0 +1,42 @@
+.notice-container{
+    display:flex;
+    justify-content:center;
+    margin-top:40px;
+}
+
+.notice-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+    width:100%;
+}
+
+.notice-card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.notice-card:hover{
+    transform:translateY(-8px);
+}
+
+.notice-card h2{
+    color:#0d47a1;
+    margin-bottom:15px;
+}
+
+.notice-card p{
+    color:#555;
+    line-height:1.6;
+}
+
+@media(max-width:768px){
+
+    .notice-grid{
+        grid-template-columns:1fr;
+    }
+
+}
