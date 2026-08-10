@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/home.css">
+        
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudentHub Portal</title>
@@ -26,7 +28,7 @@
 
    <img src="https://admission.charusat.ac.in/View%20Assets/MainPage/assets/charusat%20images/logo.png" width="1000" height="100">
    <section>
-    <h2><u>Welcome to StudentHub Portal</u></h2>
+    <h1 id="heading"><u>Welcome to StudentHub Portal</u></h1>
         <p>
                     <h3>This portal helps students access academic information,
         notices, attendance, results, and events.</h3>
@@ -36,7 +38,16 @@
 
     <br>
 
-    
+    <div id="notification" class="notification">
+
+    <span>
+        📢 Semester Examination starts from 15 December 2026
+    </span>
+
+    <button id="closeNotification">✕</button>
+    <button id="changeNotification">Important</button>
+
+</div>      
 
     <section class="cards">
 
@@ -90,5 +101,6 @@
 
 </section>
 </div>
+<script src="JS/Home.js"></script>
 </body>
 </html>

@@ -1,0 +1,18 @@
+.notification{
+    display:flex;
+    justify-content : space-between;
+    align-items: center;
+    background:#e3f2fd;
+    color:#0d47a1;
+    
+    padding : 15px 20px;
+    margin : 25px 0;
+    border-radius : 8px;
+}
+
+.notification button{
+    background:none;
+    border:none;
+    font-size:20px;
+    cursor:pointer;
+}
