@@ -32,3 +32,23 @@ function changeNotice(){
 }
 
 changeNotification.onclick = changeNotice;
+
+// session 3
+
+let page = document.getElementById("page");
+console.log(page);
+
+
+let themeButton = document.getElementById("themeButton");
+function changeTheme(){
+    page.classList.toggle("dark-mode");
+
+    if(page.classList.contains("dark-mode")){
+        themeButton.innerHTML = "☀️ Light Mode";
+    }
+    else
+        {
+            themeButton.innerHTML = "🌙 Dark Mode";
+        }
+}
+themeButton.onclick = changeTheme;

@@ -16,3 +16,21 @@
     font-size:20px;
     cursor:pointer;
 }
+
+.dark-mode{
+    background:#121212;
+    color:white;
+}
+
+.dark-mode .card{
+    background:#1e1e1e;
+    color:white;
+}
+
+.dark-mode .nav{
+    background:#1e1e1e;
+}
+
+.dark-mode .nav a{
+    color :white;
+}
