@@ -34,3 +34,28 @@
 .dark-mode .nav a{
     color :white;
 }
+
+/* menu button */
+
+#menuButton{
+    padding:10px 15px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+#navMenu{
+    list-style:none;
+    padding:0;
+    gap:15px;
+    flex-wrap:wrap;
+}   
+
+.show-menu{
+    display : block !important;
+}
+
+#navMenu li a{
+    text-decoration:none;
+}
+

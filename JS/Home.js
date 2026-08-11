@@ -52,3 +52,14 @@ function changeTheme(){
         }
 }
 themeButton.onclick = changeTheme;
+
+// session 4
+
+let menuButton = document.getElementById("menuButton");
+let navMenu = document.getElemenntById("navMenu");
+
+function toggleMenu(){
+    navMenu.classList.toggle("show-menu");
+}
+
+menuButton.onclick = toggleMenu;
