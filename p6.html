@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Collage Events
+        </title>
+        <link rel="stylesheet" href="CSS/p6.css">
+    </head>
+    <body>
+
+        <h1>Collage Events</h1>
+
+        <input type = "text" id="search" placeholder = "Search event">
+
+        <select id="filter">
+            <option value = "All">All</option>
+            <option value = "Technical">Technical</option>
+            <option value = "Cultural">Cultural</option>
+            <option value = "Sports">Sports</option>
+            <option value = "Workshop">Workshop</option>
+        </select>
+        <select id="sort">
+            <option value = "default">Sort by</option>
+            <option value = "name">Name</option>
+            <option value = "date">Date</option>
+        </select>
+
+            <p id = "message"> Loading ........</p>
+
+            <div id = "events"></div>
+            
+            <button id = "prev">Previous</button>
+            <span id = "page"> Page 1 </span>
+            <button id = "next">Next</button>
+
+            <script src = "JS/p6.js"></script>
+        
+    </body>
+</html>

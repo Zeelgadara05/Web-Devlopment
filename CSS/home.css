@@ -45,10 +45,7 @@
 }
 
 #navMenu{
-    list-style:none;
-    padding:0;
-    gap:15px;
-    flex-wrap:wrap;
+    display: none;
 }   
 
 .show-menu{

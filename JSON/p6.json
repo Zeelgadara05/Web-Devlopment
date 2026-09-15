@@ -1,0 +1,106 @@
+[
+    {
+        "name": "Coding Competition",
+        "date": "2026-08-12",
+        "category": "Technical",
+        "venue": "Computer Lab"
+    },
+
+    {
+        "name": "Sports Day",
+        "date": "2026-08-20",
+        "category": "Sports",
+        "venue": "University Ground"
+    },
+
+    {
+        "name": "Cultural Fest",
+        "date": "2026-08-25",
+        "category": "Cultural",
+        "venue": "Auditorium"
+    },
+
+    {
+        "name": "Web Development Workshop",
+        "date": "2026-08-28",
+        "category": "Workshop",
+        "venue": "Computer Lab"
+    },
+
+    {
+        "name": "Hackathon",
+        "date": "2026-09-02",
+        "category": "Technical",
+        "venue": "Innovation Lab"
+    },
+
+    {
+        "name": "Football Tournament",
+        "date": "2026-09-10",
+        "category": "Sports",
+        "venue": "Football Ground"
+    },
+
+    {
+        "name": "Garba Night",
+        "date": "2026-09-15",
+        "category": "Cultural",
+        "venue": "Open Ground"
+    },
+
+    {
+        "name": "Cyber Security Workshop",
+        "date": "2026-09-20",
+        "category": "Workshop",
+        "venue": "Computer Lab"
+    },
+
+    {
+        "name": "AI Seminar",
+        "date": "2026-09-25",
+        "category": "Technical",
+        "venue": "Seminar Hall"
+    },
+
+    {
+        "name": "Cricket Tournament",
+        "date": "2026-09-28",
+        "category": "Sports",
+        "venue": "Cricket Ground"
+    },
+
+    {
+        "name": "Dance Competition",
+        "date": "2026-10-02",
+        "category": "Cultural",
+        "venue": "Auditorium"
+    },
+
+    {
+        "name": "Git Workshop",
+        "date": "2026-10-05",
+        "category": "Workshop",
+        "venue": "Computer Lab"
+    },
+
+    {
+        "name": "Cloud Computing Seminar",
+        "date": "2026-10-08",
+        "category": "Technical",
+        "venue": "Seminar Hall"
+    },
+
+    {
+        "name": "Badminton Tournament",
+        "date": "2026-10-10",
+        "category": "Sports",
+        "venue": "Sports Complex"
+    },
+
+    {
+        "name": "Photography Competition",
+        "date": "2026-10-15",
+        "category": "Cultural",
+        "venue": "Student Center"
+    }
+]
