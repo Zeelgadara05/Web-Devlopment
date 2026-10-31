@@ -1,0 +1,23 @@
+# Uploaded event posters are static images only.
+# Never execute anything that is placed in this directory.
+Options -Indexes
+
+<IfModule mod_authz_core.c>
+    <FilesMatch "\.(php|phtml|phar|php[0-9]|pl|py|cgi|sh|shtml|html?|js|xml|svg)$">
+        Require all denied
+    </FilesMatch>
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+    <FilesMatch "\.(php|phtml|phar|php[0-9]|pl|py|cgi|sh|shtml|html?|js|xml|svg)$">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpg|jpeg|png|webp)$">
+        Header set X-Content-Type-Options "nosniff"
+        Header set Cache-Control "public, max-age=86400"
+    </FilesMatch>
+</IfModule>

@@ -1,0 +1,82 @@
+[
+    {
+        "id": 10,
+        "name": "Tarak Mehta",
+        "rollNo": "STU0010",
+        "department": "Not specified",
+        "year": "1",
+        "email": "mehtus@gmail.com"
+    },
+    {
+        "id": 9,
+        "name": "Zeel Gadara",
+        "rollNo": "STU0009",
+        "department": "Not specified",
+        "year": "1",
+        "email": "zeel@gmail.com"
+    },
+    {
+        "id": 1,
+        "name": "Rahul Sharma",
+        "rollNo": "CS21001",
+        "department": "Computer Science",
+        "year": "3",
+        "email": "rahul.sharma@charusat.edu"
+    },
+    {
+        "id": 2,
+        "name": "Priya Patel",
+        "rollNo": "EC21002",
+        "department": "Electronics",
+        "year": "3",
+        "email": "priya.patel@charusat.edu"
+    },
+    {
+        "id": 3,
+        "name": "Amit Kumar",
+        "rollNo": "ME21003",
+        "department": "Mechanical",
+        "year": "2",
+        "email": "amit.kumar@charusat.edu"
+    },
+    {
+        "id": 4,
+        "name": "Sneha Desai",
+        "rollNo": "CS21004",
+        "department": "Computer Science",
+        "year": "2",
+        "email": "sneha.desai@charusat.edu"
+    },
+    {
+        "id": 5,
+        "name": "Vijay Singh",
+        "rollNo": "CE21005",
+        "department": "Civil",
+        "year": "4",
+        "email": "vijay.singh@charusat.edu"
+    },
+    {
+        "id": 6,
+        "name": "Neha Joshi",
+        "rollNo": "EC21006",
+        "department": "Electronics",
+        "year": "4",
+        "email": "neha.joshi@charusat.edu"
+    },
+    {
+        "id": 7,
+        "name": "Rohit Mehta",
+        "rollNo": "ME21007",
+        "department": "Mechanical",
+        "year": "1",
+        "email": "rohit.mehta@charusat.edu"
+    },
+    {
+        "id": 8,
+        "name": "Anita Shah",
+        "rollNo": "CS21008",
+        "department": "Computer Science",
+        "year": "1",
+        "email": "anita.shah@charusat.edu"
+    }
+]

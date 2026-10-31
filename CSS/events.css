@@ -1,0 +1,149 @@
+/* Events page styles - responsive with Grid/Flexbox */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f4f4f4;
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #0d47a1;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    list-style: none;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.nav li a {
+    text-decoration: none;
+    color: #0d47a1;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: 0.3s;
+    display: block;
+}
+
+.nav li a:hover {
+    background: #0d47a1;
+    color: white;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.event-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    border-left: 4px solid #0d47a1;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.event-card h2 {
+    color: #0d47a1;
+    margin-bottom: 15px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.event-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.event-info p {
+    color: #555;
+    font-size: 16px;
+}
+
+.event-info strong {
+    color: #333;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-link a {
+    text-decoration: none;
+    background: #0d47a1;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.back-link a:hover {
+    background: #1565c0;
+}
+
+/* Mobile-first responsive */
+@media (min-width: 768px) {
+    .header h1 {
+        font-size: 36px;
+    }
+    
+    .events-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .nav {
+        flex-wrap: nowrap;
+    }
+}
+
+@media (min-width: 1024px) {
+    .header h1 {
+        font-size: 42px;
+    }
+    
+    .events-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

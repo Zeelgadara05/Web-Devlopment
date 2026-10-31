@@ -1,53 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/notice.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Notices - StudentHub Portal</title>
+    <link rel="stylesheet" href="CSS/course.css">
 </head>
 <body>
-    <div class="notice-container">
-        <section class="notice-grid">
-               <h1>Latest Notices</h1>
+    <div class="container">
+        <header class="header">
+            <h1>College Notices</h1>
+        </header>
 
-               <div class="notice-card">
+        <nav>
+            <ul class="nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="Course.html">Courses</a></li>
+                <li><a href="Attendance.html">Attendance</a></li>
+                <li><a href="Result.html">Results</a></li>
+                <li><a href="Notice.html">Notices</a></li>
+                <li><a href="Events.html">Events</a></li>
+                <li id="authNav"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
 
-    <h2>📢 Semester Examination</h2>
+        <p id="message" style="text-align: center; color: #666; margin-bottom: 20px;">Loading notices...</p>
 
-    <p>Semester Examination starts from 15 December 2026.</p>
+        <div id="noticeCards" style="display: flex; flex-direction: column; gap: 20px;"></div>
+    </div>
 
-</div>
-<div class="notice-card">
-
-    <h2>🎄 Holiday Notice</h2>
-
-    <p>College will remain closed on 25 December.</p>
-
-</div>
-<div class="notice-card">
-
-    <h2>📁 Project Submission</h2>
-
-    <p>Project submission deadline is 30 November.</p>
-
-</div>
-<div class="notice-card">
-
-    <h2>🏭 Industrial Visit</h2>
-
-    <p>Industrial Visit registration is now open.</p>
-
-</div>
-<div class="notice-card">
-
-    <h2>🏆 Sports Week</h2>
-
-    <p>Sports Week starts next Monday.</p>
-
-</div>
-        </section>
-
-</div>
+    <script src="JS/NoticeHome.js?v=1"></script>
+    <script src="JS/Session.js?v=3"></script>
 </body>
 </html>

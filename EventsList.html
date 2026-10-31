@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Events - StudentHub Portal</title>
+    <link rel="stylesheet" href="CSS/eventslist.css">
+    <link rel="stylesheet" href="CSS/theme.css">
+</head>
+<body id="page">
+    <div class="container">
+        <header class="header">
+            <h1>All Events</h1>
+            <p>Browse all events with search, filter, and sort options</p>
+        </header>
+
+        <nav>
+            <ul class="nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="Events.html">Upcoming Events</a></li>
+                <li><a href="EventsList.html">All Events</a></li>
+                <li><a href="Students.html">Students</a></li>
+                <li><a href="Notices.html">Notices</a></li>
+                <li><a href="FAQs.html">FAQs</a></li>
+                <li id="authNav"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+
+        <section class="controls">
+            <div class="search-box">
+                <input type="text" id="search" placeholder="🔍 Search events">
+            </div>
+            <div class="filters">
+                <select id="filter">
+                    <option value="All">All Categories</option>
+                    <option value="Technical">Technical</option>
+                    <option value="Cultural">Cultural</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Workshop">Workshop</option>
+                    <option value="Seminar">Seminar</option>
+                </select>
+                <select id="sort">
+                    <option value="default">Sort by</option>
+                    <option value="name">Name (A-Z)</option>
+                    <option value="date">Date (Earliest)</option>
+                </select>
+            </div>
+        </section>
+
+        <div id="message" class="message">Loading ........</div>
+
+        <section id="myRegistrations" class="my-registrations" style="display: none;">
+            <h2>🎟️ My Event Registrations</h2>
+            <div id="myRegistrationsList"></div>
+        </section>
+
+        <section class="events-grid" id="events"></section>
+
+        <div class="pagination">
+            <button id="prev">&larr; Previous</button>
+            <span id="pageInfo">Page 1</span>
+            <button id="next">Next &rarr;</button>
+        </div>
+    </div>
+
+    <!-- Event registration modal -->
+    <div id="registrationModal" class="modal" aria-hidden="true">
+        <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button type="button" class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+
+            <h2 id="modalTitle">Register for event</h2>
+            <p id="modalEventName" class="modal-event-name"></p>
+
+            <form id="registrationForm" novalidate>
+                <input type="hidden" id="regEventId" name="event_id" value="">
+
+                <div class="form-row">
+                    <label for="regRollNo">Roll Number *</label>
+                    <input type="text" id="regRollNo" name="roll_no" placeholder="e.g. CS21001" maxlength="15" required>
+                    <small>Use your StudentHub roll number. New here? <a href="Registration.html?v=2">Create an account</a>.</small>
+                </div>
+
+                <div class="form-row">
+                    <label for="regTeamName">Team Name <small>(optional)</small></label>
+                    <input type="text" id="regTeamName" name="team_name" maxlength="100" placeholder="Only for group events">
+                </div>
+
+                <div class="form-row">
+                    <label for="regNotes">Notes <small>(optional)</small></label>
+                    <textarea id="regNotes" name="notes" rows="2" maxlength="1000" placeholder="Anything the organiser should know"></textarea>
+                </div>
+
+                <div id="regMessage" class="reg-message" style="display: none;"></div>
+
+                <button type="submit" id="regSubmit" class="reg-submit">Confirm Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="JS/EventsList.js?v=3"></script>
+    <script src="JS/Session.js?v=3"></script>
+</body>
+</html>

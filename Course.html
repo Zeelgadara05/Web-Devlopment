@@ -1,57 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Courses - StudentHub Portal</title>
+    <link rel="stylesheet" href="CSS/course.css">
 </head>
 <body>
-    
-        <h1> Available Courses</h1>
-        <div class="course-container">
+    <div class="container">
+        <header class="header">
+            <h1>Courses Offered</h1>
+        </header>
 
-    <div class="course-card">
+        <nav>
+            <ul class="nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="Course.html">Courses</a></li>
+                <li><a href="Attendance.html">Attendance</a></li>
+                <li><a href="Result.html">Results</a></li>
+                <li><a href="Notice.html">Notices</a></li>
+                <li><a href="Events.html">Events</a></li>
+                <li id="authNav"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
 
-        <h2>Computer Engineering</h2>
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-header">
+                    <h2>Computer Engineering</h2>
+                    <p>B.Tech - 4 Years</p>
+                </div>
+                <div class="course-body">
+                    <h3>Core Subjects</h3>
+                    <ul>
+                        <li>Data Structures & Algorithms</li>
+                        <li>Database Management System</li>
+                        <li>Operating Systems</li>
+                        <li>Computer Networks</li>
+                        <li>Web Development</li>
+                        <li>Software Engineering</li>
+                    </ul>
+                </div>
+            </div>
 
-        <ul>
-            <li>Programming in C</li>
-            <li>Data Structures</li>
-            <li>Java Programming</li>
-            <li>Web Development</li>
-            <li>Database Management</li>
-            <li>Computer Networks</li>
-        </ul>
+            <div class="course-card">
+                <div class="course-header">
+                    <h2>Information Technology</h2>
+                    <p>B.Tech - 4 Years</p>
+                </div>
+                <div class="course-body">
+                    <h3>Core Subjects</h3>
+                    <ul>
+                        <li>Programming Fundamentals</li>
+                        <li>Data Communication</li>
+                        <li>Information Security</li>
+                        <li>Cloud Computing</li>
+                        <li>Mobile Application Development</li>
+                        <li>Artificial Intelligence</li>
+                    </ul>
+                </div>
+            </div>
 
+            <div class="course-card">
+                <div class="course-header">
+                    <h2>Electronics & Communication</h2>
+                    <p>B.Tech - 4 Years</p>
+                </div>
+                <div class="course-body">
+                    <h3>Core Subjects</h3>
+                    <ul>
+                        <li>Digital Electronics</li>
+                        <li>Analog Circuits</li>
+                        <li>Signals & Systems</li>
+                        <li>Microprocessors</li>
+                        <li>VLSI Design</li>
+                        <li>Communication Systems</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-header">
+                    <h2>Mechanical Engineering</h2>
+                    <p>B.Tech - 4 Years</p>
+                </div>
+                <div class="course-body">
+                    <h3>Core Subjects</h3>
+                    <ul>
+                        <li>Thermodynamics</li>
+                        <li>Mechanics of Solids</li>
+                        <li>Fluid Mechanics</li>
+                        <li>Manufacturing Processes</li>
+                        <li>Machine Design</li>
+                        <li>Heat Transfer</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-header">
+                    <h2>Civil Engineering</h2>
+                    <p>B.Tech - 4 Years</p>
+                </div>
+                <div class="course-body">
+                    <h3>Core Subjects</h3>
+                    <ul>
+                        <li>Structural Analysis</li>
+                        <li>Concrete Technology</li>
+                        <li>Geotechnical Engineering</li>
+                        <li>Transportation Engineering</li>
+                        <li>Environmental Engineering</li>
+                        <li>Water Resources Engineering</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="course-card">
-
-        <h2>Information Technology</h2>
-
-        <ul>
-            <li>Python</li>
-            <li>Cloud Computing</li>
-            <li>AI Basics</li>
-        </ul>
-
-    </div>
-
-    <div class="course-card">
-
-        <h2>Mechanical Engineering</h2>
-
-        <ul>
-            <li>Thermodynamics</li>
-            <li>CAD</li>
-            <li>Manufacturing</li>
-        </ul>
-
-    </div>
-
-</div>
-
-
+    <script src="JS/Session.js?v=3"></script>
 </body>
 </html>

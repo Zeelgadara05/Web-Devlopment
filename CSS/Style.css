@@ -178,6 +178,18 @@ input{
     border-radius:5px;
 }
 
+input[type="checkbox"], input[type="radio"]{
+    width: auto;
+    margin-right: 5px;
+}
+
+select{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
 button{
     padding:10px 20px;
     border:none;

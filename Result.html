@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Results - StudentHub Portal</title>
+    <link rel="stylesheet" href="CSS/course.css">
+    <link rel="stylesheet" href="CSS/records.css">
 </head>
 <body>
+    <div class="container">
+        <header class="header">
+            <h1>My Examination Results</h1>
+        </header>
 
-    <div class="result-container">
-    <div class="result-card">
+        <nav>
+            <ul class="nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="Course.html">Courses</a></li>
+                <li><a href="Attendance.html">Attendance</a></li>
+                <li><a href="Result.html">Results</a></li>
+                <li><a href="TT.html">Time Table</a></li>
+                <li><a href="Notices.html">Notices</a></li>
+                <li><a href="EventsList.html">Events</a></li>
+                <li id="authNav"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
 
+        <div id="pageMessage" class="page-message">Loading your results&hellip;</div>
+        <div id="summary" class="summary-grid"></div>
 
-        <h1>Semester Result</h1>    
-        <table>
-    <tr>
-        <th>Subject</th>
-        <th>Grade</th>
-    </tr>
+        <section class="records-shell">
+            <h2>Published results</h2>
+            <div class="table-scroll">
+                <table class="records-table" id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Exam</th>
+                            <th>Marks</th>
+                            <th>Percentage</th>
+                            <th>Grade</th>
+                            <th>Exam Date</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </div>
 
-    <tr>
-        <td>C Programming</td>
-        <td>A</td>
-    </tr>
-
-    <tr>
-        <td>Java</td>
-        <td>A+</td>
-    </tr>
-
-    <tr>
-        <td>DBMS</td>
-        <td>B+</td>
-    </tr>
-
-    <tr>
-        <td>Web Development</td>
-        <td>A</td>
-    </tr>
-
-    <tr>
-        <td>Mathematics</td>
-        <td>A</td>
-    </tr>
-</table>
-</div>
-</div>
-<br></br>
-<ul><li><b><h3>CGPA : 7.73</h3></b></li></ul>
-<ul><li><b><h3>Result Status : PASS</h3></b></li></ul>
-
-
+    <script src="JS/Result.js?v=1"></script>
+    <script src="JS/Session.js?v=3"></script>
 </body>
 </html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Events CRUD - StudentHub Portal</title>
+    <link rel="stylesheet" href="CSS/theme.css">
+    <link rel="stylesheet" href="CSS/simple-events.css?v=1">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <span class="eyebrow">Fetch API demonstration</span>
+            <h1>⚡ Simple Events CRUD</h1>
+            <p>PHP JSON API + Fetch API · list, add, update and delete without a page reload</p>
+        </header>
+
+        <nav aria-label="Main navigation">
+            <ul class="nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="admin_dashboard.php">Dashboard</a></li>
+                <li><a href="ManageEvents.html">Manage Events</a></li>
+                <li><a href="EventsList.html">All Events</a></li>
+                <li><a href="SimpleEvents.html">Simple CRUD</a></li>
+                <li id="authNav"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+
+        <div id="flash" class="flash" role="status" aria-live="polite" hidden>
+            <span id="flashText"></span>
+            <button type="button" id="flashClose" class="flash-close" aria-label="Dismiss message">&times;</button>
+        </div>
+
+        <section class="api-note" aria-label="API information">
+            <div>
+                <strong>Endpoint</strong>
+                <code>php/api/simple_events.php</code>
+            </div>
+            <p>
+                The page calls this endpoint with <code>fetch()</code>. The response is JSON, and the table is
+                refreshed by JavaScript after every change. Only staff accounts can use the endpoint.
+            </p>
+        </section>
+
+        <div class="layout">
+            <section class="panel form-panel" aria-labelledby="formTitle">
+                <div class="panel-heading">
+                    <div>
+                        <h2 id="formTitle">Add event</h2>
+                        <p id="formHint" class="muted">Create a record with the JSON API.</p>
+                    </div>
+                    <span id="formMode" class="mini-badge">NEW</span>
+                </div>
+
+                <form id="eventForm" novalidate>
+                    <input type="hidden" id="eventId" name="id" value="">
+                    <input type="hidden" id="formAction" name="action" value="create">
+
+                    <div class="form-grid">
+                        <div class="form-row">
+                            <label for="title">Event title *</label>
+                            <input type="text" id="title" name="title" maxlength="150" placeholder="e.g. Coding Workshop" required>
+                            <small class="field-error" data-error-for="title"></small>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="venue">Venue *</label>
+                            <input type="text" id="venue" name="venue" maxlength="150" placeholder="e.g. Computer Lab 2" required>
+                            <small class="field-error" data-error-for="venue"></small>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="eventDate">Event date *</label>
+                            <input type="date" id="eventDate" name="event_date" required>
+                            <small class="field-error" data-error-for="event_date"></small>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="status">Status *</label>
+                            <select id="status" name="status" required>
+                                <option value="scheduled">Scheduled</option>
+                                <option value="completed">Completed</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                            <small class="field-error" data-error-for="status"></small>
+                        </div>
+
+                        <div class="form-row span-2">
+                            <label for="description">Description <small>(optional)</small></label>
+                            <textarea id="description" name="description" rows="3" maxlength="1000" placeholder="A short note about the event"></textarea>
+                            <small class="field-error" data-error-for="description"></small>
+                        </div>
+                    </div>
+
+                    <div id="formAlert" class="form-alert" role="alert" hidden></div>
+
+                    <div class="form-actions">
+                        <button type="button" id="cancelEdit" class="btn btn-ghost" hidden>Cancel edit</button>
+                        <button type="submit" id="saveEvent" class="btn btn-primary">Add event</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="panel list-panel" aria-labelledby="listTitle">
+                <div class="panel-heading">
+                    <div>
+                        <h2 id="listTitle">Event records</h2>
+                        <p id="resultCount" class="muted">Loading events…</p>
+                    </div>
+                    <button type="button" id="refresh" class="btn btn-ghost btn-small">↻ Refresh</button>
+                </div>
+
+                <div id="loading" class="loading" role="status">Loading events from the JSON API…</div>
+
+                <div id="tableWrap" class="table-wrap" hidden>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Event</th>
+                                <th scope="col">Venue</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col" class="actions-col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eventsBody"></tbody>
+                    </table>
+                </div>
+
+                <div id="emptyState" class="empty-state" hidden>
+                    <span aria-hidden="true">🗓️</span>
+                    <h3>No events yet</h3>
+                    <p>Add the first event using the form.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="JS/SimpleEvents.js?v=1"></script>
+    <script src="JS/Session.js?v=3"></script>
+</body>
+</html>

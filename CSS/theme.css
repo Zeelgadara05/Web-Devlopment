@@ -1,4 +1,200 @@
-.dark-mode{
-    background:black;
-    color:white;
+/* Enhanced Theme CSS for light/dark mode */
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --card-bg: white;
+    --nav-bg: white;
+    --border-color: #e0e0e0;
+    --shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --primary-color: #0d47a1;
+    --primary-hover: #1565c0;
+}
+
+.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --nav-bg: #1e1e1e;
+    --border-color: #333;
+    --shadow: 0 5px 15px rgba(0,0,0,0.5);
+    --primary-color: #64b5f6;
+    --primary-hover: #90caf9;
+}
+
+.dark-mode body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.dark-mode .header h1 {
+    color: var(--primary-color);
+}
+
+.dark-mode .header p {
+    color: #b0b0b0;
+}
+
+.dark-mode .nav {
+    background: var(--nav-bg);
+    box-shadow: var(--shadow);
+}
+
+.dark-mode .nav li a {
+    color: var(--primary-color);
+    background: #252525;
+}
+
+.dark-mode .nav li a:hover {
+    background: var(--primary-color);
+    color: #121212;
+}
+
+.dark-mode .notification {
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+    color: #e3f2fd;
+    border-left-color: var(--primary-color);
+}
+
+.dark-mode .notification button {
+    background: rgba(100, 181, 246, 0.2);
+    color: #e3f2fd;
+}
+
+.dark-mode .notification button:hover {
+    background: rgba(100, 181, 246, 0.3);
+}
+
+.dark-mode .card {
+    background: var(--card-bg);
+    color: var(--text-color);
+    box-shadow: var(--shadow);
+}
+
+.dark-mode .card h2 {
+    color: var(--primary-color);
+}
+
+.dark-mode .card p {
+    color: #b0b0b0;
+}
+
+.dark-mode .card a {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+    color: #121212;
+}
+
+.dark-mode .card a:hover {
+    box-shadow: 0 4px 12px rgba(100, 181, 246, 0.4);
+}
+
+.dark-mode .student-card,
+.dark-mode .event-card,
+.dark-mode .notice-card,
+.dark-mode .faq-item,
+.dark-mode .controls,
+.dark-mode .pagination,
+.dark-mode .message,
+.dark-mode .form-container {
+    background: var(--card-bg);
+    color: var(--text-color);
+    box-shadow: var(--shadow);
+}
+
+.dark-mode .student-card h2,
+.dark-mode .event-card h2,
+.dark-mode .notice-card h2 {
+    color: var(--primary-color);
+}
+
+.dark-mode .student-card p,
+.dark-mode .event-card p,
+.dark-mode .notice-card p {
+    color: #b0b0b0;
+}
+
+.dark-mode .student-card strong,
+.dark-mode .event-card strong,
+.dark-mode .notice-card strong {
+    color: var(--text-color);
+}
+
+.dark-mode .faq-question {
+    background: var(--primary-color);
+    color: #121212;
+}
+
+.dark-mode .faq-question:hover {
+    background: var(--primary-hover);
+}
+
+.dark-mode .faq-answer {
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
+.dark-mode .faq-answer p {
+    color: #b0b0b0;
+}
+
+.dark-mode .faq-answer .category {
+    background: #252525;
+    color: var(--primary-color);
+}
+
+.dark-mode .pagination button {
+    background: var(--primary-color);
+    color: #121212;
+}
+
+.dark-mode .pagination button:hover {
+    background: var(--primary-hover);
+}
+
+.dark-mode .pagination button:disabled {
+    background: #333;
+    color: #666;
+}
+
+.dark-mode .search-box input,
+.dark-mode .filters select {
+    background: #252525;
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.dark-mode .form-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #42a5f5 100%);
+    color: #121212;
+}
+
+.dark-mode .form-group label {
+    color: var(--text-color);
+}
+
+.dark-mode .form-group input[type="text"],
+.dark-mode .form-group input[type="email"],
+.dark-mode .form-group input[type="password"],
+.dark-mode .form-group select {
+    background: #252525;
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.dark-mode .form-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.1);
+}
+
+.dark-mode .btn-reset {
+    background: #252525;
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.dark-mode .btn-reset:hover {
+    background: #333;
+}
+
+.dark-mode .message {
+    color: #b0b0b0;
 }

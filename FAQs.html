@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - StudentHub Portal</title>
+    <link rel="stylesheet" href="CSS/faqs.css">
+    <link rel="stylesheet" href="CSS/theme.css">
+</head>
+<body id="page">
+    <div class="container">
+        <header class="header">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions</p>
+        </header>
+
+        <nav>
+            <ul class="nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="Students.html">Students</a></li>
+                <li><a href="EventsList.html">Events</a></li>
+                <li><a href="Notices.html">Notices</a></li>
+                <li><a href="FAQs.html">FAQs</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li id="authNav"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+
+        <section class="controls">
+            <div class="search-box">
+                <input type="text" id="search" placeholder="🔍 Search FAQs">
+            </div>
+            <div class="filters">
+                <select id="filterCat">
+                    <option value="All">All Categories</option>
+                    <option value="Attendance">Attendance</option>
+                    <option value="Results">Results</option>
+                    <option value="Events">Events</option>
+                    <option value="Fee">Fee</option>
+                    <option value="General">General</option>
+                </select>
+                <select id="sort">
+                    <option value="default">Sort by</option>
+                    <option value="question">Question (A-Z)</option>
+                </select>
+            </div>
+        </section>
+
+        <div id="message" class="message">Loading ........</div>
+
+        <section class="faqs-container" id="faqs"></section>
+
+        <div class="pagination">
+            <button id="prev">&larr; Previous</button>
+            <span id="pageInfo">Page 1</span>
+            <button id="next">Next &rarr;</button>
+        </div>
+    </div>
+
+    <script src="JS/FAQs.js?v=4"></script>
+    <script src="JS/Session.js?v=3"></script>
+</body>
+</html>

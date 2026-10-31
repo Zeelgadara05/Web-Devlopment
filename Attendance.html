@@ -1,55 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Attendance - StudentHub Portal</title>
+    <link rel="stylesheet" href="CSS/course.css">
+    <link rel="stylesheet" href="CSS/records.css">
 </head>
 <body>
-    <div class="attendance-container">
-    <div class="attendance-card">
+    <div class="container">
+        <header class="header">
+            <h1>My Attendance Record</h1>
+        </header>
 
-            <h1>Attendance Record</h1>
-            <table>
-    <tr>
-        <th>Subject</th>
-        <th>Total Classes</th>
-        <th>Present</th>
-        <th>Percentage</th>
-    </tr>
+        <nav>
+            <ul class="nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="Course.html">Courses</a></li>
+                <li><a href="Attendance.html">Attendance</a></li>
+                <li><a href="Result.html">Results</a></li>
+                <li><a href="TT.html">Time Table</a></li>
+                <li><a href="Notices.html">Notices</a></li>
+                <li><a href="EventsList.html">Events</a></li>
+                <li id="authNav"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
 
-    <tr>
-        <td>C Programming</td>
-        <td>40</td>
-        <td>38</td>
-        <td>95%</td>
-    </tr>
+        <div id="pageMessage" class="page-message">Loading your attendance&hellip;</div>
+        <div id="summary" class="summary-grid"></div>
 
-    <tr>
-        <td>Java</td>
-        <td>35</td>
-        <td>32</td>
-        <td>91%</td>
-    </tr>
+        <section class="records-shell">
+            <h2>Subject-wise attendance</h2>
+            <div class="table-scroll">
+                <table class="records-table" id="subjectTable">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Total Classes</th>
+                            <th>Present</th>
+                            <th>Absent</th>
+                            <th>Attendance</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
 
-    <tr>
-        <td>DSA</td>
-        <td>30</td>
-        <td>28</td>
-        <td>93%</td>
-    </tr>
+        <section class="records-shell">
+            <h2>Recent attendance entries</h2>
+            <div class="table-scroll">
+                <table class="records-table" id="recordsTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Subject</th>
+                            <th>Status</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </div>
 
-    <tr>
-        <td>Computer Networks</td>
-        <td>25</td>
-        <td>24</td>
-        <td>96%</td>
-    </tr>
-</table>
-</div>
-</div>
-<br></br>
-<ul><li><h3>Overall Attendance : 94%</h3></li></ul>
+    <script src="JS/Attendance.js?v=1"></script>
+    <script src="JS/Session.js?v=3"></script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Semester Exam Schedule Released",
+    "date": "2026-10-01",
+    "category": "Examination"
+  },
+  {
+    "id": 2,
+    "title": "Fee Payment Deadline",
+    "date": "2026-10-05",
+    "category": "Fee"
+  },
+  {
+    "id": 3,
+    "title": "Workshop on AI and ML",
+    "date": "2026-10-08",
+    "category": "Workshop"
+  },
+  {
+    "id": 4,
+    "title": "Holiday Notice - Diwali",
+    "date": "2026-10-12",
+    "category": "Holiday"
+  },
+  {
+    "id": 5,
+    "title": "Sports Day Registration Open",
+    "date": "2026-10-15",
+    "category": "Sports"
+  },
+  {
+    "id": 6,
+    "title": "Scholarship Application Reminder",
+    "date": "2026-10-18",
+    "category": "Scholarship"
+  }
+]

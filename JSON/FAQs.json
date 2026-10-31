@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "question": "How do I check my attendance?",
+    "answer": "Go to the Attendance page from the menu to view your subject-wise attendance.",
+    "category": "Attendance"
+  },
+  {
+    "id": 2,
+    "question": "Where can I see my results?",
+    "answer": "You can view your results on the Results page.",
+    "category": "Results"
+  },
+  {
+    "id": 3,
+    "question": "How to register for events?",
+    "answer": "Visit the Events page and follow the registration link for each event.",
+    "category": "Events"
+  },
+  {
+    "id": 4,
+    "question": "What is the fee payment process?",
+    "answer": "Fee payment can be done online through the student portal.",
+    "category": "Fee"
+  },
+  {
+    "id": 5,
+    "question": "How to apply for leave?",
+    "answer": "Submit a leave application through the student portal with proper documentation.",
+    "category": "General"
+  }
+]

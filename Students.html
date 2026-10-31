@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management - StudentHub Portal</title>
+    <link rel="stylesheet" href="CSS/theme.css">
+    <link rel="stylesheet" href="CSS/students.css?v=7">
+</head>
+<body id="page">
+    <div class="container">
+        <header class="header">
+            <h1>👨‍🎓 Student Management</h1>
+            <p>Staff only · add, view, edit, search and remove student records</p>
+        </header>
+
+        <nav>
+            <ul class="nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="Profile.html">My Profile</a></li>
+                <li><a href="Students.html">All Students</a></li>
+                <li><a href="EventsList.html">Events</a></li>
+                <li><a href="Notices.html">Notices</a></li>
+                <li><a href="FAQs.html">FAQs</a></li>
+                <li id="authNav"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+
+        <section class="toolbar" aria-label="Search and filter students">
+            <div class="toolbar-top">
+                <div class="search-box">
+                    <label class="sr-only" for="search">Search students</label>
+                    <input type="search" id="search" placeholder="🔍 Search name, roll no, email or mobile" autocomplete="off">
+                </div>
+                <button type="button" id="addStudent" class="btn btn-primary">+ Add Student</button>
+            </div>
+
+            <div class="filters">
+                <label class="sr-only" for="filterDepartment">Filter by department</label>
+                <select id="filterDepartment">
+                    <option value="">All Departments</option>
+                </select>
+
+                <label class="sr-only" for="filterCourse">Filter by course</label>
+                <select id="filterCourse">
+                    <option value="">All Courses</option>
+                </select>
+
+                <label class="sr-only" for="filterYear">Filter by year</label>
+                <select id="filterYear">
+                    <option value="">All Years</option>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                    <option value="5">5th Year</option>
+                    <option value="6">6th Year</option>
+                </select>
+
+                <label class="sr-only" for="filterStatus">Filter by status</label>
+                <select id="filterStatus">
+                    <option value="">All Statuses</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                    <option value="graduated">Graduated</option>
+                    <option value="suspended">Suspended</option>
+                </select>
+
+                <label class="sr-only" for="sort">Sort students</label>
+                <select id="sort">
+                    <option value="newest">Newest first</option>
+                    <option value="name">Name (A-Z)</option>
+                    <option value="rollNo">Roll No (A-Z)</option>
+                    <option value="year">Year (low to high)</option>
+                </select>
+
+                <button type="button" id="resetFilters" class="btn btn-ghost">Reset</button>
+            </div>
+        </section>
+
+        <div id="message" class="message" role="status" aria-live="polite">Loading students…</div>
+
+        <section class="table-card">
+            <div class="table-wrap">
+                <table class="students-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Roll No</th>
+                            <th scope="col">Student</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Course</th>
+                            <th scope="col">Year / Sem</th>
+                            <th scope="col">Status</th>
+                            <th scope="col" class="actions-col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentsTableBody">
+                        <tr>
+                            <td colspan="7" class="table-empty">Loading students…</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-footer">
+                <span id="resultCount" class="result-count">0 students</span>
+                <div class="pagination">
+                    <button type="button" id="prev" class="btn btn-ghost">⬅️ Previous</button>
+                    <span id="pageInfo">Page 1 of 1</span>
+                    <button type="button" id="next" class="btn btn-ghost">Next ➡️</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Add / edit modal -->
+    <div class="modal" id="formModal" hidden>
+        <div class="modal-backdrop" data-close="formModal"></div>
+        <div class="modal-card modal-wide" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+            <header class="modal-head">
+                <h2 id="formTitle">Add Student</h2>
+                <button type="button" class="icon-btn" data-close="formModal" aria-label="Close">&times;</button>
+            </header>
+
+            <form id="studentForm" novalidate>
+                <input type="hidden" id="studentId" name="id" value="">
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="roll_no">Roll No <span class="required">*</span></label>
+                        <input type="text" id="roll_no" name="roll_no" maxlength="20" placeholder="CS21010" autocomplete="off">
+                        <span class="field-error" data-error-for="roll_no"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="full_name">Full Name <span class="required">*</span></label>
+                        <input type="text" id="full_name" name="full_name" maxlength="100" placeholder="Rahul Sharma" autocomplete="off">
+                        <span class="field-error" data-error-for="full_name"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" maxlength="150" placeholder="student@charusat.edu" autocomplete="off">
+                        <span class="field-error" data-error-for="email"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="mobile">Mobile <span class="required">*</span></label>
+                        <input type="tel" id="mobile" name="mobile" maxlength="10" placeholder="9876500000" autocomplete="off">
+                        <span class="field-error" data-error-for="mobile"></span>
+                    </div>
+
+                    <div class="field field-wide">
+                        <label for="password">Password <span id="passwordRequired" class="required">*</span></label>
+                        <input type="password" id="password" name="password" maxlength="72" placeholder="At least 8 characters with a letter, number and symbol" autocomplete="new-password">
+                        <span class="field-hint" id="passwordHint">Required for a new student.</span>
+                        <span class="field-error" data-error-for="password"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="department_id">Department <span class="required">*</span></label>
+                        <select id="department_id" name="department_id">
+                            <option value="">Select department</option>
+                        </select>
+                        <span class="field-error" data-error-for="department_id"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="course_id">Course <span class="required">*</span></label>
+                        <select id="course_id" name="course_id">
+                            <option value="">Select course</option>
+                        </select>
+                        <span class="field-error" data-error-for="course_id"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="current_year">Current Year <span class="required">*</span></label>
+                        <select id="current_year" name="current_year">
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                            <option value="5">5th Year</option>
+                            <option value="6">6th Year</option>
+                        </select>
+                        <span class="field-error" data-error-for="current_year"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="current_semester">Current Semester <span class="required">*</span></label>
+                        <select id="current_semester" name="current_semester"></select>
+                        <span class="field-error" data-error-for="current_semester"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="gender">Gender <span class="required">*</span></label>
+                        <select id="gender" name="gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span class="field-error" data-error-for="gender"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="date_of_birth">Date of Birth</label>
+                        <input type="date" id="date_of_birth" name="date_of_birth">
+                        <span class="field-error" data-error-for="date_of_birth"></span>
+                    </div>
+
+                    <div class="field field-wide">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" maxlength="255" placeholder="Street, area, landmark">
+                        <span class="field-error" data-error-for="address"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" maxlength="100" placeholder="Anand">
+                        <span class="field-error" data-error-for="city"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state" maxlength="100" placeholder="Gujarat">
+                        <span class="field-error" data-error-for="state"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="pincode">Pincode</label>
+                        <input type="text" id="pincode" name="pincode" maxlength="6" inputmode="numeric" placeholder="388001">
+                        <span class="field-error" data-error-for="pincode"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="admission_date">Admission Date</label>
+                        <input type="date" id="admission_date" name="admission_date">
+                        <span class="field-error" data-error-for="admission_date"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="status">Status <span class="required">*</span></label>
+                        <select id="status" name="status">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="graduated">Graduated</option>
+                            <option value="suspended">Suspended</option>
+                        </select>
+                        <span class="field-error" data-error-for="status"></span>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-ghost" data-close="formModal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="saveStudent">Save Student</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View modal -->
+    <div class="modal" id="viewModal" hidden>
+        <div class="modal-backdrop" data-close="viewModal"></div>
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="viewTitle">
+            <header class="modal-head">
+                <h2 id="viewTitle">Student Details</h2>
+                <button type="button" class="icon-btn" data-close="viewModal" aria-label="Close">&times;</button>
+            </header>
+            <div id="viewBody" class="view-body">Loading…</div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-ghost" data-close="viewModal">Close</button>
+                <button type="button" class="btn btn-primary" id="viewEditBtn">Edit Student</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete confirmation modal -->
+    <div class="modal" id="deleteModal" hidden>
+        <div class="modal-backdrop" data-close="deleteModal"></div>
+        <div class="modal-card modal-narrow" role="alertdialog" aria-modal="true" aria-labelledby="deleteTitle">
+            <header class="modal-head">
+                <h2 id="deleteTitle">Delete Student?</h2>
+                <button type="button" class="icon-btn" data-close="deleteModal" aria-label="Close">&times;</button>
+            </header>
+            <div class="delete-body">
+                <p id="deleteText">This permanently removes the student record.</p>
+                <p class="delete-warning">
+                    ⚠️ This also removes their event registrations, attendance and results.
+                    This action cannot be undone.
+                </p>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-ghost" data-close="deleteModal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDelete">Yes, Delete Student</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/Students.js?v=7"></script>
+    <script src="JS/Session.js?v=3"></script>
+</body>
+</html>

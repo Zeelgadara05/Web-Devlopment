@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1793253719,
+        "fullname": "Zeel Gadara",
+        "rollNo": "STU0009",
+        "email": "zeel@gmail.com",
+        "mobile": "9875643210",
+        "course": "B.Tech",
+        "department": "Not specified",
+        "year": "1",
+        "gender": "Male",
+        "registered_at": "2026-10-29 07:12:34"
+    },
+    {
+        "id": 1793253720,
+        "fullname": "Tarak Mehta",
+        "rollNo": "STU0010",
+        "email": "mehtus@gmail.com",
+        "mobile": "9876543210",
+        "course": "B.Tech",
+        "department": "Not specified",
+        "year": "1",
+        "gender": "Male",
+        "registered_at": "2026-10-29 07:14:18"
+    }
+]

@@ -1,134 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/home.css">
-        <link rel="stylesheet" href="css/theme.css"
-        
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentHub Portal</title>
-    <style>
-        .nav {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            padding: 0;
-        }
-
-        .nav li a {
-            color: blue;
-            text-decoration: none;
-            font-size: 16px;
-        }
-    </style>
+    <title>StudentHub Portal - Home</title>
+    <link rel="stylesheet" href="CSS/home.css">
 </head>
 <body id="page">
-    
-        <div>
-            
+    <div class="wrapper">
+        <header class="header">
+            <h1 id="heading">StudentHub Portal</h1>
+        </header>
 
+        <div class="actions">
+            <button id="themeButton" class="btn">Dark Mode</button>
+            <button id="menuButton" class="btn">Menu</button>
+        </div>
 
-
-   <img src="https://admission.charusat.ac.in/View%20Assets/MainPage/assets/charusat%20images/logo.png" width="1000" height="100">
-   <section>
-    <h1 id="heading"><u>Welcome to StudentHub Portal</u></h1>
-        <p>
-                    <h3>This portal helps students access academic information,
-        notices, attendance, results, and events.</h3>
-
-        </p>
-    </section>
-<button id="themeButton">🌙 Dark Mode</button>
-
-    <button id="menuButton">☰ Menu</button>
-
-<ul id="navMenu" class="nav">
-
-    <li><a href="about.html">About Us</a></li>
-
-    <li><a href="Profile.html">Profile</a></li>
-
-    <li><a href="Course.html">Courses</a></li>
-
-    <li><a href="Attendance.html">Attendance</a></li>
-
-    <li><a href="Result.html">Results</a></li>
-
-    <li><a href="Notice.html">Notice</a></li>
-
-    <li><a href="Events.html">Events</a></li>
-
-    <li><a href="TT.html">Time Table</a></li>
-
-    <li><a href="Contact.html">Contact</a></li>
-
-</ul>
-    <br>
-
-    <div id="notification" class="notification">
-
-    <span>
-        📢 Semester Examination starts from 15 December 2026
-    </span>
-
-    <button id="closeNotification">✕</button>
-    <button id="changeNotification">Important</button>
-
-</div>      
-
-    <section class="cards">
-
-    <div class="card">
-        <h2>👤 Profile</h2>
-        <p>View your personal details, student ID, contact information, and department.</p>
-        <a href="Profile.html">Open Profile</a>
+        <nav class="nav-container">
+            <ul id="navMenu" class="nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="Course.html">Courses</a></li>
+                <li><a href="Attendance.html">Attendance</a></li>
+                <li><a href="Result.html">Results</a></li>
+                <li><a href="Notice.html">Notice</a></li>
+                <li><a href="Events.html">Events</a></li>
+                <li><a href="TT.html">Time Table</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="Registration.html?v=2">Registration</a></li>
+                <li id="authNav"><a href="login.html">Login</a></li>
+                <li><a href="EventsList.html">Events List</a></li>
+                <li><a href="Students.html">Students</a></li>
+                <li><a href="Notices.html">Notices</a></li>
+                <li><a href="FAQs.html">FAQs</a></li>
+            </ul>
+        </nav>
     </div>
 
-    <div class="card">
-        <h2>📚 Courses</h2>
-        <p>Explore all available courses offered by different engineering departments.</p>
-        <a href="Course.html">View Courses</a>
-    </div>
-
-    <div class="card">
-        <h2>📅 Attendance</h2>
-        <p>Check your attendance percentage and subject-wise attendance records.</p>
-        <a href="Attendance.html">Check Attendance</a>
-    </div>
-
-    <div class="card">
-        <h2>📊 Results</h2>
-        <p>View semester examination results and academic performance.</p>
-        <a href="Result.html">View Results</a>
-    </div>
-
-    <div class="card">
-        <h2>📢 Notice</h2>
-        <p>Read the latest announcements and important notices from the college.</p>
-        <a href="Notice.html">View Notices</a>
-    </div>
-
-    <div class="card">
-        <h2>🎉 Events</h2>
-        <p>Stay updated with workshops, seminars, cultural events, and competitions.</p>
-        <a href="Events.html">Explore Events</a>
-    </div>
-
-    <div class="card">
-        <h2>🕒 Time Table</h2>
-        <p>Check your weekly class schedule and lecture timings.</p>
-        <a href="TT.html">View Time Table</a>
-    </div>
-
-    <div class="card">
-        <h2>📞 Contact</h2>
-        <p>Get contact details of the college administration and support team.</p>
-        <a href="Contact.html">Contact Us</a>
-    </div>
-
-</section>
-</div>
-<script src="JS/Home.js"></script>
+    <script src="JS/Home.js"></script>
+    <script src="JS/Session.js?v=3"></script>
 </body>
 </html>

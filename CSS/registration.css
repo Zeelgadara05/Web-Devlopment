@@ -1,0 +1,375 @@
+/* Registration page styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.form-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.form-header {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.form-header h2 {
+    font-size: 24px;
+}
+
+.form-body {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1a237e;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #1a237e;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkbox-group input {
+    margin-top: 3px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(26, 35, 126, 0.4);
+}
+
+/* Inline validation feedback */
+.field-hint {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #546e7a;
+    line-height: 1.4;
+}
+
+.error-message {
+    display: block;
+    min-height: 0;
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #c62828;
+    line-height: 1.4;
+}
+
+.error-message:empty {
+    display: none;
+}
+
+.error-message.checking {
+    color: #1565c0;
+    font-weight: 500;
+}
+
+.error-message.success {
+    color: #2e7d32;
+    font-weight: 500;
+}
+
+.form-group input.is-invalid,
+.form-group select.is-invalid {
+    border-color: #c62828;
+    background: #fff8f8;
+}
+
+.form-group input.is-invalid:focus,
+.form-group select.is-invalid:focus {
+    border-color: #c62828;
+    box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.12);
+}
+
+.form-group input.is-valid,
+.form-group select.is-valid {
+    border-color: #2e7d32;
+}
+
+.btn-submit:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+}
+
+.message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: 1px solid transparent;
+    line-height: 1.5;
+}
+
+/* Client-side summary message shown by JS/Registration.js */
+.form-message {
+    display: none;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    line-height: 1.5;
+    border: 1px solid transparent;
+}
+
+.form-message.show {
+    display: block;
+}
+
+.form-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+.form-message.success {
+    background: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.message a {
+    color: inherit;
+    font-weight: 700;
+}
+
+.btn-link {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #1a237e;
+    color: #ffffff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-link:hover {
+    background: #283593;
+}
+
+.message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.login-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Remember-me row on the login form */
+.remember-row {
+    margin-bottom: 22px;
+}
+
+.checkbox-inline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #1a237e;
+    cursor: pointer;
+}
+
+.checkbox-inline input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #1a237e;
+    cursor: pointer;
+}
+
+.remember-row .field-hint {
+    margin-top: 4px;
+    margin-left: 28px;
+}
+
+.login-hint {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: #eef3fb;
+    color: #41576b;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Student / Admin-Faculty login selector */
+.login-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 16px 24px 0;
+}
+
+.login-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 12px;
+    border: 2px solid #d9e2ec;
+    border-radius: 10px;
+    background: #f6f9fc;
+    color: #37474f;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.login-tab:hover {
+    border-color: #90a4ae;
+    transform: translateY(-1px);
+}
+
+.login-tab.is-active {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+    border-color: #1a237e;
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(26, 35, 126, 0.22);
+}
+
+.tab-icon {
+    font-size: 18px;
+}
+
+.staff-note {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid #ffe0b2;
+    background: #fff8e1;
+    color: #6d4c41;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.staff-note strong,
+.staff-note span {
+    display: block;
+}
+
+.staff-note code {
+    background: #ffffff;
+    border: 1px solid #ffe0b2;
+    border-radius: 4px;
+    padding: 1px 5px;
+    color: #4e342e;
+}
+
+@media (max-width: 600px) {
+    .form-body {
+        padding: 20px;
+    }
+
+    .login-tabs {
+        grid-template-columns: 1fr;
+        padding: 16px 20px 0;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

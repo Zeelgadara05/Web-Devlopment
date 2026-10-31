@@ -1,65 +1,41 @@
-alert("Welcome to Student Hub Portal");
-console.log("Java Script link is Successfull");
-let Student = "Zeel Gadara";
-let Age = 20;
-let Collage = "CHARUSAT University";
-console.log(Student);
-console.log(Age);
-console.log(Collage);
-console.log(document);
-
-// session 2
+/* Home page JavaScript */
 let heading = document.getElementById("heading");
-console.log(heading);
-heading.innerHTML = "Welcome to Student Hub Portal";
-heading.style.color = "blue";
-heading.style.fontSize = "50px";
-heading.style.textAlign = "center";
-
-let notification = document.getElementById("notification");
-let closeNotification = document.getElementById("closeNotification");
-
-function closeNotice(){
-    notification.style.display = "none";
+if (heading) {
+    heading.innerHTML = "StudentHub Portal";
 }
-
-closeNotification.onclick = closeNotice;
-
-let changeNotification = document.getElementById("changeNotification");
-
-function changeNotice(){
-    notification.innerHTML = "⚠️ Important Notice: Please check the examination schedule.";
-}
-
-changeNotification.onclick = changeNotice;
-
-// session 3
 
 let page = document.getElementById("page");
-console.log(page);
-
-
 let themeButton = document.getElementById("themeButton");
-function changeTheme(){
-    page.classList.toggle("dark-mode");
 
-    if(page.classList.contains("dark-mode")){
-        themeButton.innerHTML = "☀️ Light Mode";
+if (themeButton && page) {
+    if (localStorage.getItem('theme') === 'dark') {
+        page.classList.add('dark-mode');
+        themeButton.innerHTML = "Light Mode";
     }
-    else
-        {
-            themeButton.innerHTML = "🌙 Dark Mode";
+    
+    themeButton.onclick = function() {
+        page.classList.toggle("dark-mode");
+        
+        if (page.classList.contains("dark-mode")) {
+            themeButton.innerHTML = "Light Mode";
+            localStorage.setItem('theme', 'dark');
+        } else {
+            themeButton.innerHTML = "Dark Mode";
+            localStorage.setItem('theme', 'light');
         }
+    };
 }
-themeButton.onclick = changeTheme;
-
-// session 4
 
 let menuButton = document.getElementById("menuButton");
-let navMenu = document.getElemenntById("navMenu");
+let navMenu = document.getElementById("navMenu");
 
-function toggleMenu(){
-    navMenu.classList.toggle("show-menu");
+if (menuButton && navMenu) {
+    menuButton.onclick = function() {
+        navMenu.classList.toggle("show-menu");
+        if (navMenu.classList.contains("show-menu")) {
+            menuButton.innerHTML = "Close Menu";
+        } else {
+            menuButton.innerHTML = "Menu";
+        }
+    };
 }
-
-menuButton.onclick = toggleMenu;

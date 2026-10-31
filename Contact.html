@@ -1,51 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/contact.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact Us - StudentHub Portal</title>
+    <link rel="stylesheet" href="CSS/contact_new.css">
 </head>
 <body>
-    <div class="contact-container">
-    <div class="contact-card">
+    <div class="container">
+        <header class="header">
+            <h1>Contact Us</h1>
+        </header>
 
-    <h2>📍 StudentHub Portal</h2>
+        <nav>
+            <ul class="nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="Course.html">Courses</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li id="authNav"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
 
-    <p><strong>Address:</strong><br>
-    CHARUSAT University,<br>
-    Changa,<br>
-    Gujarat
-    </p>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="card-header">
+                    <h2>Get In Touch</h2>
+                </div>
+                <div class="card-body">
+                    <div class="info-item">
+                        <h3>Address</h3>
+                        <p>CHARUSAT University<br>Changa, Anand<br>Gujarat, India</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Phone</h3>
+                        <p>+91 9998158131</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Email</h3>
+                        <p>zeelgadara05@gmail.com</p>
+                    </div>
+                </div>
+            </div>
 
-    <p><strong>Phone:</strong> +91 9998158131</p>
-
-    <p><strong>Email:</strong> zeelgadara05@gmail.com</p>
-
-     <h2>📝 Contact Form</h2>
-
-    <form>
-
-        <label>Name</label>
-        <input type="text">
-
-        <label>Email</label>
-        <input type="email">
-
-        <label>Phone</label>
-        <input type="tel">
-
-        <label>Subject</label>
-        <input type="text">
-
-        <label>Message</label>
-        <textarea rows="5"></textarea>
-
-        <button type="submit">Submit</button>
-
-    </form>
-</div>
-
-</div>
+            <div class="contact-card">
+                <div class="card-header">
+                    <h2>Send Message</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="php/contact_process.php">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="JS/Session.js?v=3"></script>
 </body>
-</html> 
+</html>

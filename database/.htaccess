@@ -1,0 +1,11 @@
+# Do not serve database schema dumps or notes over the web.
+# Apache 2.4 (XAMPP)
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+
+# Apache 2.2 fallback
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>

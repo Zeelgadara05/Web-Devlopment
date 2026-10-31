@@ -1,0 +1,611 @@
+/* Events List page styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f4f4f4;
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #0d47a1;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    list-style: none;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.nav li a {
+    text-decoration: none;
+    color: #0d47a1;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: 0.3s;
+    display: block;
+}
+
+.nav li a:hover {
+    background: #0d47a1;
+    color: white;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filters select {
+    flex: 1;
+    min-width: 150px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.message {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.event-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    border-left: 4px solid #0d47a1;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.event-poster {
+    display: block;
+    width: 100%;
+    max-height: 210px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #e0e0e0;
+}
+
+.event-card h2 {
+    color: #0d47a1;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.event-card p {
+    color: #555;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.event-card strong {
+    color: #333;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.pagination button {
+    padding: 10px 20px;
+    border: none;
+    background: #0d47a1;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.pagination button:hover {
+    background: #1565c0;
+}
+
+.pagination button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+#pageInfo {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Mobile-first responsive */
+@media (min-width: 768px) {
+    .header h1 {
+        font-size: 36px;
+    }
+    
+    .controls {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .search-box {
+        flex: 2;
+    }
+    
+    .filters {
+        flex: 3;
+        flex-wrap: nowrap;
+    }
+    
+    .events-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .nav {
+        flex-wrap: nowrap;
+    }
+}
+
+@media (min-width: 1024px) {
+    .header h1 {
+        font-size: 42px;
+    }
+    
+    .events-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* ------------------------------------------------------------------
+ * Event cards: badges, details and registration button
+ * ------------------------------------------------------------------ */
+.event-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.event-card-header h2 {
+    margin-bottom: 0;
+    flex: 1;
+}
+
+.event-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+
+.event-description {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 14px;
+}
+
+.event-meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+
+.event-meta p {
+    margin-bottom: 2px;
+}
+
+.event-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+}
+
+.event-status {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.status-open {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-closed {
+    background: #eceff1;
+    color: #546e7a;
+}
+
+.status-full {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.status-cancelled {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.register-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #0d47a1, #1565c0);
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.register-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(13, 71, 161, 0.35);
+}
+
+.register-btn:disabled {
+    background: #cfd8dc;
+    color: #607d8b;
+    cursor: not-allowed;
+}
+
+/* ------------------------------------------------------------------
+ * Registration modal
+ * ------------------------------------------------------------------ */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 20px;
+    overflow-y: auto;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-dialog {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    animation: modal-in 0.22s ease-out;
+}
+
+@keyframes modal-in {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    line-height: 1;
+    color: #78909c;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #c62828;
+}
+
+.modal-dialog h2 {
+    color: #0d47a1;
+    font-size: 24px;
+    margin-bottom: 6px;
+    padding-right: 30px;
+}
+
+.modal-event-name {
+    color: #546e7a;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.form-row {
+    margin-bottom: 16px;
+}
+
+.form-row label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #263238;
+    font-size: 14px;
+}
+
+.form-row small,
+.form-row label small {
+    font-weight: normal;
+    color: #78909c;
+}
+
+.form-row input,
+.form-row textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+    outline: none;
+    border-color: #0d47a1;
+    box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.12);
+}
+
+.form-row input[readonly] {
+    background: #eceff1;
+    color: #455a64;
+}
+
+.reg-submit {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #0d47a1, #1565c0);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.reg-submit:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(13, 71, 161, 0.35);
+}
+
+.reg-submit:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.reg-message {
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.reg-message.success {
+    background: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #c8e6c9;
+}
+
+.reg-message.error {
+    background: #ffebee;
+    color: #b71c1c;
+    border: 1px solid #ffcdd2;
+}
+
+@media (min-width: 768px) {
+    .event-meta {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ------------------------------------------------------------------
+ * Logged-in student's registrations
+ * ------------------------------------------------------------------ */
+.my-registrations {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #2e7d32;
+}
+
+.my-registrations h2 {
+    color: #1b5e20;
+    font-size: 21px;
+    margin-bottom: 16px;
+}
+
+.my-reg-card {
+    border: 1px solid #e0e0e0;
+    border-left: 4px solid #43a047;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: #fafafa;
+}
+
+.my-reg-card.reg-status-cancelled {
+    border-left-color: #e53935;
+    opacity: 0.8;
+}
+
+.my-reg-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    color: #263238;
+}
+
+.my-reg-code {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 12px;
+    color: #546e7a;
+    background: #eceff1;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.my-reg-meta {
+    font-size: 13px;
+    color: #607d8b;
+    margin: 4px 0 8px;
+}
+
+.my-reg-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.reg-status {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.reg-status-confirmed {
+    background: #e8f5e9;
+    color: #1b5e20;
+}
+
+.reg-status-pending {
+    background: #fff8e1;
+    color: #f57f17;
+}
+
+.reg-status-waitlisted {
+    background: #e3f2fd;
+    color: #0d47a1;
+}
+
+.reg-status-cancelled {
+    background: #ffebee;
+    color: #b71c1c;
+}
+
+.cancel-reg-btn {
+    padding: 5px 12px;
+    border: 1px solid #e53935;
+    border-radius: 6px;
+    background: #fff;
+    color: #c62828;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.cancel-reg-btn:hover:not(:disabled) {
+    background: #e53935;
+    color: #fff;
+}
+
+.cancel-reg-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.my-reg-empty {
+    color: #607d8b;
+    font-size: 14px;
+    padding: 6px 0;
+}

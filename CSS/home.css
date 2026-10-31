@@ -1,58 +1,188 @@
-.notification{
-    display:flex;
-    justify-content : space-between;
-    align-items: center;
-    background:#e3f2fd;
-    color:#0d47a1;
-    
-    padding : 15px 20px;
-    margin : 25px 0;
-    border-radius : 8px;
+/* Home page styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.notification button{
-    background:none;
-    border:none;
-    font-size:20px;
-    cursor:pointer;
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 15px;
 }
 
-.dark-mode{
-    background:#121212;
-    color:white;
+.wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.dark-mode .card{
-    background:#1e1e1e;
-    color:white;
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 35px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.dark-mode .nav{
-    background:#1e1e1e;
+.header h1 {
+    color: #1a237e;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
-.dark-mode .nav a{
-    color :white;
+.actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
-/* menu button */
-
-#menuButton{
-    padding:10px 15px;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
+.btn {
+    padding: 12px 35px;
+    border: none;
+    background: #1a237e;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(26, 35, 126, 0.3);
 }
 
-#navMenu{
+.btn:hover {
+    background: #283593;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 35, 126, 0.4);
+}
+
+.nav-container {
+    margin-bottom: 40px;
+}
+
+.nav {
     display: none;
-}   
-
-.show-menu{
-    display : block !important;
+    flex-direction: column;
+    list-style: none;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-#navMenu li a{
-    text-decoration:none;
+.nav.show-menu {
+    display: flex;
+    animation: slideDown 0.3s ease;
 }
 
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.nav li:last-child {
+    border-bottom: none;
+}
+
+.nav li a {
+    text-decoration: none;
+    color: #1a237e;
+    font-weight: 600;
+    padding: 16px 28px;
+    display: block;
+    transition: all 0.3s ease;
+    background: white;
+    font-size: 15px;
+}
+
+.nav li a:hover {
+    background: linear-gradient(90deg, #1a237e 0%, #283593 100%);
+    color: white;
+    padding-left: 38px;
+}
+
+/* Dark mode */
+.dark-mode {
+    background: linear-gradient(135deg, #0a0a0a 0%, #151515 100%);
+}
+
+.dark-mode .header {
+    background: #1e1e1e;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.dark-mode .header h1 {
+    color: #64b5f6;
+}
+
+.dark-mode .btn {
+    background: #64b5f6;
+    color: #121212;
+    box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3);
+}
+
+.dark-mode .btn:hover {
+    background: #90caf9;
+    box-shadow: 0 6px 20px rgba(100, 181, 246, 0.4);
+}
+
+.dark-mode .nav {
+    background: #1e1e1e;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8);
+}
+
+.dark-mode .nav li {
+    border-bottom-color: #2a2a2a;
+}
+
+.dark-mode .nav li a {
+    background: #1e1e1e;
+    color: #64b5f6;
+}
+
+.dark-mode .nav li a:hover {
+    background: linear-gradient(90deg, #64b5f6 0%, #90caf9 100%);
+    color: #121212;
+}
+
+@media (min-width: 640px) {
+    .header h1 {
+        font-size: 42px;
+    }
+    .nav {
+        max-width: 550px;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        padding: 30px;
+    }
+    .header h1 {
+        font-size: 48px;
+    }
+    .nav li a {
+        padding: 18px 32px;
+        font-size: 16px;
+    }
+    .nav li a:hover {
+        padding-left: 42px;
+    }
+}

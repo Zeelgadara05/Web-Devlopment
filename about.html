@@ -1,26 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Us - StudentHub Portal</title>
+    <link rel="stylesheet" href="CSS/profile.css">
 </head>
 <body>
-    
-       <p1 align="left"><b><u><h1>1.About StudentHub</h1></u></b></p1>
-       <br></br>
-       <ul><p>=>StudentHub Portal is designed to provide students with all essential college information in one place.</p></ul>
-        <br></br>
-        <ul>
-            <li><u><h2>Our Mission</h2></u></li>
-            <li>Improve communication</li>
-            <li>Easy access to information</li>
-            <li>Better learning experience</li>
-            <br></br>
-            <li><u><h2>Our Vision</h2></u></li>
-            <p>=> To create a digital platform that supports every student.</p>
-        </ul>
+    <div class="container">
+        <header class="header">
+            <h1>About Us</h1>
+        </header>
 
+        <nav>
+            <ul class="nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="Course.html">Courses</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li id="authNav"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+
+        <div style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); margin-bottom: 25px;">
+            <h2 style="color: #1a237e; margin-bottom: 15px;">About StudentHub Portal</h2>
+            <p style="color: #333; line-height: 1.8; margin-bottom: 15px;">StudentHub Portal is a comprehensive digital platform designed to provide students with all essential college information in one place. It serves as a centralized hub for academic resources, announcements, and campus activities.</p>
+            <p style="color: #333; line-height: 1.8;">Our platform aims to bridge the gap between students and administration by providing real-time updates and easy access to important information, enhancing the overall college experience.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+            <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                <h2 style="color: #1a237e; margin-bottom: 15px;">Our Mission</h2>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 8px 0; padding-left: 20px; position: relative;">Improve communication between students and administration</li>
+                    <li style="padding: 8px 0; padding-left: 20px; position: relative;">Provide easy access to academic information</li>
+                    <li style="padding: 8px 0; padding-left: 20px; position: relative;">Enhance the overall learning experience</li>
+                    <li style="padding: 8px 0; padding-left: 20px; position: relative;">Promote student engagement in campus activities</li>
+                </ul>
+            </div>
+
+            <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                <h2 style="color: #1a237e; margin-bottom: 15px;">Our Vision</h2>
+                <p style="color: #333; line-height: 1.8;">To create a digital platform that supports every student throughout their academic journey by providing seamless access to all essential services and information in one centralized location, fostering a connected and informed campus community.</p>
+            </div>
+        </div>
+    </div>
+    <script src="JS/Session.js?v=3"></script>
 </body>
 </html>

@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/event.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Events - StudentHub Portal</title>
+    <link rel="stylesheet" href="CSS/course.css">
 </head>
 <body>
-<div class="events-container">
-    <section class="events"></section>
-    
-        <h1>Upcoming Events</h1>
-        <div class="event-card">
+    <div class="container">
+        <header class="header">
+            <h1>Upcoming Events</h1>
+        </header>
 
-    <h2>💻 Coding Competition</h2>
+        <nav>
+            <ul class="nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="Course.html">Courses</a></li>
+                <li><a href="Events.html">Events</a></li>
+                <li><a href="EventsList.html">All Events</a></li>
+                <li><a href="Notice.html">Notices</a></li>
+                <li id="authNav"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
 
-    <p><strong>Date:</strong> 12 August 2026</p>
+        <p id="message" style="text-align: center; color: #666; margin-bottom: 20px;">Loading events...</p>
 
-    <p><strong>Venue:</strong> Computer Lab</p>
+        <div id="eventCards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;"></div>
+    </div>
 
-</div>
-<div class="event-card">
-
-    <h2>🏅 Sports Day</h2>
-
-    <p><strong>Date:</strong> 20 August 2026</p>
-
-    <p><strong>Venue:</strong> College Ground</p>
-
-</div>
-</section>
-</div>
+    <script src="JS/EventsHome.js?v=1"></script>
+    <script src="JS/Session.js?v=3"></script>
 </body>
 </html>

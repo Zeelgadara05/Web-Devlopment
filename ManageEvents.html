@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management - StudentHub Portal</title>
+    <link rel="stylesheet" href="CSS/theme.css">
+    <link rel="stylesheet" href="CSS/manage-events.css?v=1">
+</head>
+<body id="page">
+    <div class="container">
+        <header class="header">
+            <h1>📅 Event Management</h1>
+            <p>Staff only · add, view, update and delete events, and upload validated posters</p>
+        </header>
+
+        <nav>
+            <ul class="nav">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="admin_dashboard.php">Dashboard</a></li>
+                <li><a href="Students.html">Students</a></li>
+                <li><a href="ManageEvents.html">Manage Events</a></li>
+                <li><a href="SimpleEvents.html">Fetch API Demo</a></li>
+                <li><a href="EventsList.html">All Events</a></li>
+                <li><a href="Notices.html">Notices</a></li>
+                <li id="authNav"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+
+        <div id="flash" class="flash" role="status" aria-live="polite" hidden>
+            <span id="flashText"></span>
+            <button type="button" id="flashClose" class="flash-close" aria-label="Dismiss message">&times;</button>
+        </div>
+
+        <section class="toolbar" aria-label="Event search and filters">
+            <div class="toolbar-search">
+                <label class="sr-only" for="search">Search events</label>
+                <input type="search" id="search" placeholder="🔍 Search title, venue or organiser" autocomplete="off">
+            </div>
+
+            <div class="toolbar-filters">
+                <label class="sr-only" for="filterCategory">Filter by category</label>
+                <select id="filterCategory">
+                    <option value="">All categories</option>
+                </select>
+
+                <label class="sr-only" for="filterStatus">Filter by status</label>
+                <select id="filterStatus">
+                    <option value="">All statuses</option>
+                    <option value="published">Published</option>
+                    <option value="draft">Draft</option>
+                    <option value="cancelled">Cancelled</option>
+                    <option value="completed">Completed</option>
+                </select>
+
+                <label class="sr-only" for="sort">Sort events</label>
+                <select id="sort">
+                    <option value="newest">Newest first</option>
+                    <option value="date">Event date</option>
+                    <option value="name">Name (A-Z)</option>
+                    <option value="deadline">Registration deadline</option>
+                    <option value="updated">Recently updated</option>
+                </select>
+            </div>
+
+            <div class="toolbar-actions">
+                <button type="button" id="refresh" class="btn btn-ghost" title="Reload the event list">↻ Refresh</button>
+                <button type="button" id="newEvent" class="btn btn-primary">+ Add event</button>
+            </div>
+        </section>
+
+        <section class="panel" aria-labelledby="listTitle">
+            <div class="panel-heading">
+                <div>
+                    <h2 id="listTitle">All events</h2>
+                    <p id="resultCount" class="muted">Loading events…</p>
+                </div>
+                <span id="listBadge" class="badge">0 records</span>
+            </div>
+
+            <div id="loading" class="loading-state" role="status">Loading events from the database…</div>
+
+            <div id="listWrap" class="table-wrap" hidden>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Event</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Date &amp; time</th>
+                            <th scope="col">Venue</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Seats</th>
+                            <th scope="col" class="actions-col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventsBody"></tbody>
+                </table>
+            </div>
+
+            <div id="emptyState" class="empty-state" hidden>
+                <span class="empty-icon" aria-hidden="true">🗓️</span>
+                <h3>No events found</h3>
+                <p>Change the search or filters, or create the first event.</p>
+                <button type="button" class="btn btn-primary" id="emptyCreate">+ Add event</button>
+            </div>
+
+            <div class="pagination" id="pagination" hidden>
+                <button type="button" id="prev" class="btn btn-ghost">&larr; Previous</button>
+                <span id="pageInfo">Page 1 of 1</span>
+                <button type="button" id="next" class="btn btn-ghost">Next &rarr;</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Add / edit event -------------------------------------------------->
+    <div id="eventModal" class="modal" aria-hidden="true">
+        <div class="modal-dialog modal-wide" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+            <button type="button" class="modal-close" data-close="eventModal" aria-label="Close">&times;</button>
+
+            <h2 id="formTitle">Add event</h2>
+            <p id="formSubtitle" class="modal-subtitle">Create a new event and upload an optional poster.</p>
+
+            <form id="eventForm" novalidate enctype="multipart/form-data">
+                <input type="hidden" id="eventId" name="id" value="">
+                <input type="hidden" id="formAction" name="action" value="create">
+
+                <div id="formAlert" class="form-alert" role="alert" hidden></div>
+
+                <div class="form-grid">
+                    <div class="form-row span-2">
+                        <label for="title">Event title *</label>
+                        <input type="text" id="title" name="title" maxlength="150" placeholder="e.g. Annual Tech Fest 2026" required>
+                        <small class="field-error" data-error-for="title"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="categoryId">Category *</label>
+                        <select id="categoryId" name="category_id" required>
+                            <option value="">Select a category</option>
+                        </select>
+                        <small class="field-error" data-error-for="category_id"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="status">Status *</label>
+                        <select id="status" name="status" required>
+                            <option value="published">Published</option>
+                            <option value="draft">Draft</option>
+                            <option value="cancelled">Cancelled</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                        <small class="field-error" data-error-for="status"></small>
+                    </div>
+
+                    <div class="form-row span-2">
+                        <label for="description">Description <small>(optional)</small></label>
+                        <textarea id="description" name="description" rows="3" maxlength="5000" placeholder="What is the event about?"></textarea>
+                        <small class="field-error" data-error-for="description"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="eventDate">Event date *</label>
+                        <input type="date" id="eventDate" name="event_date" required>
+                        <small class="field-error" data-error-for="event_date"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="venue">Venue *</label>
+                        <input type="text" id="venue" name="venue" maxlength="150" placeholder="e.g. Main Auditorium" required>
+                        <small class="field-error" data-error-for="venue"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="startTime">Start time <small>(optional)</small></label>
+                        <input type="time" id="startTime" name="start_time">
+                        <small class="field-error" data-error-for="start_time"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="endTime">End time <small>(optional)</small></label>
+                        <input type="time" id="endTime" name="end_time">
+                        <small class="field-error" data-error-for="end_time"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="registrationDeadline">Registration deadline <small>(optional)</small></label>
+                        <input type="datetime-local" id="registrationDeadline" name="registration_deadline">
+                        <small class="field-error" data-error-for="registration_deadline"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="maxParticipants">Maximum participants <small>(blank = unlimited)</small></label>
+                        <input type="number" id="maxParticipants" name="max_participants" min="1" max="100000" step="1" placeholder="e.g. 120">
+                        <small class="field-error" data-error-for="max_participants"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="registrationFee">Registration fee (₹)</label>
+                        <input type="number" id="registrationFee" name="registration_fee" min="0" max="99999999.99" step="0.01" placeholder="0.00">
+                        <small class="field-error" data-error-for="registration_fee"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="organizerName">Organizer <small>(optional)</small></label>
+                        <input type="text" id="organizerName" name="organizer_name" maxlength="100" placeholder="e.g. Computer Engineering Department">
+                        <small class="field-error" data-error-for="organizer_name"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="contactEmail">Contact email <small>(optional)</small></label>
+                        <input type="email" id="contactEmail" name="contact_email" maxlength="150" placeholder="events@charusat.edu">
+                        <small class="field-error" data-error-for="contact_email"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="contactPhone">Contact phone <small>(optional)</small></label>
+                        <input type="tel" id="contactPhone" name="contact_phone" maxlength="10" inputmode="numeric" placeholder="10 digits">
+                        <small class="field-error" data-error-for="contact_phone"></small>
+                    </div>
+
+                    <div class="form-row checkbox-row span-2">
+                        <label for="isFeatured">
+                            <input type="checkbox" id="isFeatured" name="is_featured" value="1">
+                            Feature this event on the portal
+                        </label>
+                    </div>
+
+                    <div class="form-row span-2">
+                        <label for="poster">Event poster <small>(optional)</small></label>
+                        <div class="poster-panel">
+                            <div id="posterPreview" class="poster-preview is-empty">
+                                <span>No poster selected</span>
+                            </div>
+                            <div class="poster-controls">
+                                <input type="file" id="poster" name="poster" class="file-input" accept="image/jpeg,image/png,image/webp">
+                                <label for="poster" class="btn btn-ghost file-label">Choose poster</label>
+                                <small id="posterRules" class="muted">JPG, PNG or WebP · maximum 2 MB.</small>
+                                <label class="checkbox-row" id="removePosterRow" hidden>
+                                    <input type="checkbox" id="removePoster" name="remove_poster" value="1">
+                                    Remove the current poster
+                                </label>
+                            </div>
+                        </div>
+                        <small class="field-error" data-error-for="poster"></small>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-ghost" data-close="eventModal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="saveEvent">Save event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View event -------------------------------------------------------->
+    <div id="viewModal" class="modal" aria-hidden="true">
+        <div class="modal-dialog modal-wide" role="dialog" aria-modal="true" aria-labelledby="viewTitle">
+            <button type="button" class="modal-close" data-close="viewModal" aria-label="Close">&times;</button>
+            <div id="viewBody"></div>
+        </div>
+    </div>
+
+    <!-- Delete confirmation ---------------------------------------------->
+    <div id="deleteModal" class="modal" aria-hidden="true">
+        <div class="modal-dialog modal-small" role="alertdialog" aria-modal="true" aria-labelledby="deleteTitle" aria-describedby="deleteSummary">
+            <button type="button" class="modal-close" data-close="deleteModal" aria-label="Close">&times;</button>
+            <h2 id="deleteTitle">Delete event?</h2>
+            <p id="deleteSummary" class="modal-subtitle"></p>
+            <div class="warning-box">
+                This permanently deletes the event and every registration linked to it. This action cannot be undone.
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-ghost" data-close="deleteModal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDelete">Delete event</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/ManageEvents.js?v=1"></script>
+    <script src="JS/Session.js?v=3"></script>
+</body>
+</html>

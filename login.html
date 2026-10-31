@@ -1,40 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Login Form</title>
+    <title>Login - StudentHub Portal</title>
+    <link rel="stylesheet" href="CSS/registration.css?v=4">
 </head>
 <body>
-    <h1>Basic Login Form</h1>
-    <div class="login-container">
-    <fieldset>
-        <legend>User Login</legend>
-        <form action="#" method="post">
-            <table>
-                <tr>
-                    <td>Email Address:</td>
-                    <td><input type="email" name="email" placeholder="Enter email" required></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="password" name="password" placeholder="Enter password" required></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="checkbox" name="remember" id="remember"> Remember Email & Password
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <button type="submit">Login</button>
-                        <button type="reset">Reset</button>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </fieldset>
+    <div class="container">
+        <header class="header">
+            <h1 id="loginHeading">Student Login</h1>
+            <p style="margin-top: 8px; color: #546e7a;">Sign in to open the StudentHub portal</p>
+        </header>
+
+        <div class="form-container" style="max-width: 540px; margin: 0 auto;">
+            <div class="login-tabs" role="tablist" aria-label="Choose account type">
+                <button type="button" class="login-tab is-active" id="tabStudent"
+                        role="tab" aria-selected="true" data-type="student">
+                    <span class="tab-icon">🎓</span>
+                    <span>Student</span>
+                </button>
+                <button type="button" class="login-tab" id="tabStaff"
+                        role="tab" aria-selected="false" data-type="staff">
+                    <span class="tab-icon">🛡️</span>
+                    <span>Admin / Faculty</span>
+                </button>
+            </div>
+
+            <div class="form-header">
+                <h2 id="formTitle">Student Sign In</h2>
+            </div>
+            <div class="form-body">
+                <div id="loginMessage" class="login-message" role="alert" aria-live="polite" style="display: none;"></div>
+
+                <form method="POST" action="php/login_process.php" id="loginForm">
+                    <input type="hidden" name="login_type" id="loginType" value="student">
+                    <input type="hidden" name="next" id="loginNext" value="">
+
+                    <div class="form-group">
+                        <label for="identifier" id="identifierLabel">Email or Roll Number</label>
+                        <input type="text" id="identifier" name="identifier" placeholder="Enter email or roll number"
+                               autocomplete="username" maxlength="150" required>
+                        <span class="field-hint" id="identifierHint">Students can sign in with their email address or roll number.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter password"
+                               autocomplete="current-password" required>
+                    </div>
+
+                    <div class="remember-row">
+                        <label class="checkbox-inline" for="remember">
+                            <input type="checkbox" id="remember" name="remember" value="1">
+                            <span>Remember me for 30 days</span>
+                        </label>
+                        <span class="field-hint">Only use this on your own device.</span>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-submit" id="loginButton">Sign in as Student</button>
+                    </div>
+                </form>
+
+                <div class="staff-note" id="staffNote" style="display: none;">
+                    <strong>Staff accounts are issued by the administration.</strong>
+                    <span>Contact the college IT office if you need an Admin, Faculty or Event Manager account.</span>
+                    <span>Staff accounts cannot be self-registered from this page.</span>
+                </div>
+
+                <p class="login-hint">
+                    You are signed out automatically after 30 minutes of inactivity
+                    or 8 hours after signing in.
+                </p>
+
+                <p style="margin-top: 20px; text-align: center;">
+                    <span id="registerLink"><a href="Registration.html?v=2">New student? Register here</a> | </span>
+                    <a href="php/api/health.php" id="statusLink">System status</a>
+                </p>
+            </div>
+        </div>
     </div>
+
+    <script>
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const box = document.getElementById("loginMessage");
+            const error = params.get("error");
+            const message = params.get("message");
+            const timedOut = params.get("timeout") === "1";
+            const next = params.get("next") || "";
+            const requestedType = (params.get("login_type") || "").toLowerCase();
+
+            const elements = {
+                hiddenType: document.getElementById("loginType"),
+                next: document.getElementById("loginNext"),
+                heading: document.getElementById("loginHeading"),
+                title: document.getElementById("formTitle"),
+                label: document.getElementById("identifierLabel"),
+                input: document.getElementById("identifier"),
+                hint: document.getElementById("identifierHint"),
+                button: document.getElementById("loginButton"),
+                staffNote: document.getElementById("staffNote"),
+                registerLink: document.getElementById("registerLink"),
+                tabStudent: document.getElementById("tabStudent"),
+                tabStaff: document.getElementById("tabStaff")
+            };
+
+            function setType(type) {
+                const staff = type === "staff";
+                elements.hiddenType.value = staff ? "staff" : "student";
+                elements.heading.textContent = staff ? "Admin / Faculty Login" : "Student Login";
+                elements.title.textContent = staff ? "Staff Sign In" : "Student Sign In";
+                elements.label.textContent = staff ? "Staff Email Address" : "Email or Roll Number";
+                elements.input.placeholder = staff ? "Enter your staff email" : "Enter email or roll number";
+                elements.input.autocomplete = staff ? "email" : "username";
+                elements.hint.textContent = staff
+                    ? "Use the Admin or Faculty ID issued by the college. Staff accounts cannot be self-registered."
+                    : "Students can sign in with their email address or roll number.";
+                elements.button.textContent = staff ? "Sign in as Admin / Faculty" : "Sign in as Student";
+                elements.staffNote.style.display = staff ? "block" : "none";
+                elements.registerLink.style.display = staff ? "none" : "inline";
+
+                elements.tabStudent.classList.toggle("is-active", !staff);
+                elements.tabStaff.classList.toggle("is-active", staff);
+                elements.tabStudent.setAttribute("aria-selected", staff ? "false" : "true");
+                elements.tabStaff.setAttribute("aria-selected", staff ? "true" : "false");
+            }
+
+            elements.tabStudent.addEventListener("click", function () {
+                setType("student");
+                elements.input.focus();
+            });
+            elements.tabStaff.addEventListener("click", function () {
+                setType("staff");
+                elements.input.focus();
+            });
+
+            setType(requestedType === "staff" ? "staff" : "student");
+            elements.next.value = next;
+
+            if (error) {
+                box.textContent = (timedOut ? "Session expired: " : "") + error;
+                box.style.background = timedOut ? "#fff3cd" : "#f8d7da";
+                box.style.color = timedOut ? "#856404" : "#721c24";
+                box.style.borderColor = timedOut ? "#ffeeba" : "#f5c6cb";
+                box.style.display = "block";
+            } else if (message) {
+                box.textContent = message;
+                box.style.background = "#d4edda";
+                box.style.color = "#155724";
+                box.style.borderColor = "#c3e6cb";
+                box.style.display = "block";
+            }
+
+            const email = params.get("email");
+            if (email) {
+                elements.input.value = email;
+            }
+            if (email || error) {
+                document.getElementById("password").focus();
+            }
+        })();
+    </script>
 </body>
 </html>
